@@ -30,19 +30,7 @@ function useFetch(param: string) {
           `https://hn.algolia.com/api/v1/search_by_date?query=${param}&page=0&hitsPerPage=15`
         )
         .then((res) => {
-          const filteredData = res.data.hits.filter(
-            (
-              author: string,
-              story_title: string,
-              story_url: string,
-              created_at: string
-            ) =>
-              author !== null &&
-              story_title !== null &&
-              story_url !== null &&
-              created_at !== null
-          )
-          setData(filteredData)
+          setData(res.data.hits)
           setLoading(false)
         })
         .catch((err) => {
