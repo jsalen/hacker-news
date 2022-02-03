@@ -48,6 +48,7 @@
   font-weight: 400;
   line-height: 1.57;
   color: #343434;
+  animation: fadeIn 0.2s ease;
 }
 
 .options li {
@@ -66,4 +67,13 @@
   width: 24px;
   height: 24px;
   object-fit: contain;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
