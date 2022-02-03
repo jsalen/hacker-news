@@ -1,10 +1,19 @@
 import './styles.css'
 
-export const Navigation = () => {
+interface Props {
+  view: boolean
+  handleNavigation: () => void
+}
+
+export const Navigation = ({ view, handleNavigation }: Props) => {
   return (
     <nav className='navigation'>
-      <button>All</button>
-      <button>My faves</button>
+      <button className={view ? 'active' : ''} onClick={handleNavigation}>
+        All
+      </button>
+      <button className={view ? '' : 'active'} onClick={handleNavigation}>
+        My faves
+      </button>
     </nav>
   )
 }
