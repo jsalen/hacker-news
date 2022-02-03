@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Dropdown } from './components/Dropdown'
 import { Header } from './components/Header'
 import { Navigation } from './components/Navigation'
 
@@ -14,6 +15,7 @@ function App() {
       <Header />
       <main>
         <Navigation handleNavigation={handleNavigation} view={view} />
+        <Dropdown />
       </main>
     </>
   )
