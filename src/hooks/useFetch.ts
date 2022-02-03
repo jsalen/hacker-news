@@ -37,10 +37,10 @@ function useFetch(param: string) {
               story_url: string,
               created_at: string
             ) =>
-              author !== 'null' &&
-              story_title !== 'null' &&
-              story_url !== 'null' &&
-              created_at !== 'null'
+              author !== null &&
+              story_title !== null &&
+              story_url !== null &&
+              created_at !== null
           )
           setData(filteredData)
           setLoading(false)
