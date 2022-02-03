@@ -25,7 +25,7 @@ function App() {
       <Header />
       <main>
         <Navigation handleNavigation={handleNavigation} view={view} />
-        <Dropdown handleFilter={handleFilter} />
+        <Dropdown handleFilter={handleFilter} filter={filter} />
       </main>
     </>
   )

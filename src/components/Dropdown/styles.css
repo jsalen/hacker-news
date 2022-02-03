@@ -13,6 +13,10 @@
   cursor: pointer;
 }
 
+.dropdown--capitalize {
+  text-transform: capitalize;
+}
+
 .dropdown p {
   font-family: Roboto;
   font-size: 14px;

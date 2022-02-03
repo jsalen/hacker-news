@@ -8,9 +8,10 @@ import './styles.css'
 
 interface Props {
   handleFilter: (filter: string) => void
+  filter: string
 }
 
-export const Dropdown = ({ handleFilter }: Props) => {
+export const Dropdown = ({ handleFilter, filter }: Props) => {
   const [options, setOptions] = useState(false)
 
   const handleOptions = () => {
@@ -20,7 +21,9 @@ export const Dropdown = ({ handleFilter }: Props) => {
   return (
     <section>
       <div className='dropdown' onClick={handleOptions}>
-        <p>Select your news</p>
+        <p className={filter !== '' ? 'dropdown--capitalize' : ''}>
+          {filter === '' ? 'Select your news' : filter}
+        </p>
         <span className='arrow'></span>
         {options && (
           <ul className='options'>
@@ -29,7 +32,7 @@ export const Dropdown = ({ handleFilter }: Props) => {
                 className='options__icon'
                 src={angularIcon}
                 alt='Angular Icon'
-              />{' '}
+              />
               Angular
             </li>
             <li onClick={() => handleFilter('react')}>
