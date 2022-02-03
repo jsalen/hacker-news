@@ -1,0 +1,37 @@
+.navigation {
+  width: 100%;
+  padding-top: 35px;
+  display: flex;
+  justify-content: center;
+}
+
+.navigation button {
+  padding: 3px 16px 0 17px;
+  font-family: Roboto, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.75;
+  color: #606060;
+  background-color: #fcfcfc;
+  border: 1px solid #d6d6d6;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.navigation .active {
+  color: #1797ff;
+  border: solid 1px #1797ff;
+}
+
+.navigation .active:first-child {
+  border-right: 0;
+}
+.navigation .active:last-child {
+  border-left: 0;
+}
+
+@media screen and (min-width: 600px) {
+  .navigation {
+    padding-top: 70px;
+  }
+}
