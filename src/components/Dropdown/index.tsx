@@ -6,7 +6,11 @@ import vueIcon from '../../statics/images/image-141.png'
 
 import './styles.css'
 
-export const Dropdown = () => {
+interface Props {
+  handleFilter: (filter: string) => void
+}
+
+export const Dropdown = ({ handleFilter }: Props) => {
   const [options, setOptions] = useState(false)
 
   const handleOptions = () => {
@@ -20,7 +24,7 @@ export const Dropdown = () => {
         <span className='arrow'></span>
         {options && (
           <ul className='options'>
-            <li>
+            <li onClick={() => handleFilter('angular')}>
               <img
                 className='options__icon'
                 src={angularIcon}
@@ -28,11 +32,11 @@ export const Dropdown = () => {
               />{' '}
               Angular
             </li>
-            <li>
+            <li onClick={() => handleFilter('react')}>
               <img className='options__icon' src={reactIcon} alt='React Icon' />{' '}
               React
             </li>
-            <li>
+            <li onClick={() => handleFilter('vue')}>
               <img className='options__icon' src={vueIcon} alt='Vue Icon' /> Vue
             </li>
           </ul>
