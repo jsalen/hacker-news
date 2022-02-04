@@ -3,8 +3,7 @@ import axios from 'axios'
 import { News } from '../interfaces/News.interface'
 import { filterData } from '../utils'
 
-const URL_BY_DATE =
-  'https://hn.algolia.com/api/v1/search_by_date?hitsPerPage=15'
+const URL_BY_DATE = 'https://hn.algolia.com/api/v1/search_by_date'
 
 function useFetch(param: string) {
   const [data, setData] = useState<News[]>([])
@@ -29,7 +28,7 @@ function useFetch(param: string) {
     } else {
       axios
         .get(
-          `https://hn.algolia.com/api/v1/search_by_date?query=${param}&page=0&hitsPerPage=15`
+          `https://hn.algolia.com/api/v1/search_by_date?query=${param}&page=0`
         )
         .then((res) => {
           const filteredResults = filterData(res.data.hits)
