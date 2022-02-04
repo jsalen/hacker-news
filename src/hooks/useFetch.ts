@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { News } from '../interfaces/News.interface'
+import { filterData } from '../utils'
 
 const URL_BY_DATE =
   'https://hn.algolia.com/api/v1/search_by_date?hitsPerPage=15'
@@ -17,7 +18,8 @@ function useFetch(param: string) {
       axios
         .get(URL_BY_DATE)
         .then((res) => {
-          setData(res.data.hits)
+          const filteredResults = filterData(res.data.hits)
+          setData(filteredResults)
           setLoading(false)
         })
         .catch((err) => {
@@ -30,7 +32,8 @@ function useFetch(param: string) {
           `https://hn.algolia.com/api/v1/search_by_date?query=${param}&page=0&hitsPerPage=15`
         )
         .then((res) => {
-          setData(res.data.hits)
+          const filteredResults = filterData(res.data.hits)
+          setData(filteredResults)
           setLoading(false)
         })
         .catch((err) => {
