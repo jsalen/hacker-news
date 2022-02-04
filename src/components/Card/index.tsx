@@ -21,7 +21,13 @@ export const Card = ({ card }: Props) => {
           </span>
         </header>
         <div className='card__title'>
-          <h2>{card.story_title}</h2>
+          <a
+            href={card.story_url?.toString()}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            {card.story_title}
+          </a>
         </div>
       </div>
       <div className='card__like'>

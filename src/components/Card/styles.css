@@ -11,7 +11,7 @@
 }
 
 .card:hover {
-  opacity: 0.4;
+  opacity: 0.6;
 }
 
 .card__body {
@@ -39,11 +39,12 @@
   object-fit: contain;
 }
 
-.card__title h2 {
+.card__title a {
   font-family: Roboto, sans-serif;
   font-size: 1.4rem;
   font-weight: 500;
   line-height: 1.5;
+  text-decoration: none;
   color: #6b6b6b;
 }
 
