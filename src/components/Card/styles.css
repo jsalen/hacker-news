@@ -7,6 +7,11 @@
   grid-template-columns: 1fr 68px;
   border: 1px solid #979797;
   border-radius: 6px;
+  transition: opacity 0.2s ease;
+}
+
+.card:hover {
+  opacity: 0.4;
 }
 
 .card__body {
@@ -53,4 +58,5 @@
   width: 24px;
   height: 22px;
   object-fit: contain;
+  cursor: pointer;
 }

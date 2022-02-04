@@ -1,14 +1,16 @@
 .list-of-cards {
   width: 100%;
-  padding: 37px 16px 0;
+  padding: 37px 16px 96px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 550px));
   grid-gap: 15px 40px;
   justify-content: center;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 1280px) {
   .list-of-cards {
     grid-gap: 30px 40px;
+    padding: 37px 0 96px 150px;
+    justify-content: start;
   }
 }

@@ -69,6 +69,13 @@
   object-fit: contain;
 }
 
+@media screen and (min-width: 1280px) {
+  .dropdown {
+    margin: 0;
+    margin-left: 150px;
+  }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
