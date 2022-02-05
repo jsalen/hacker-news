@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import TimeAgo from 'react-timeago'
-import { News } from '../../interfaces/News.interface'
 
 import clockIcon from '../../statics/images/iconmonstr-time-2.svg'
 import likedIcon from '../../statics/images/iconmonstr-favorite-3.svg'

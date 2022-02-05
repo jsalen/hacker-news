@@ -1,5 +1,4 @@
 import { useLocalStorage } from './useLocalStorage'
-import { News } from '../interfaces/News.interface'
 
 export function useInitialState() {
   const {

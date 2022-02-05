@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { News } from '../interfaces/News.interface'
 import { filterData } from '../utils'
 
 const URL_BY_DATE =

@@ -1,5 +1,4 @@
 import { Card } from '../../components/Card'
-import { News } from '../../interfaces/News.interface'
 import { useInfiniteScroll } from '../../hooks/useInfiniteScroll'
 
 import './styles.css'
