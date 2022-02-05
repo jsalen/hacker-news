@@ -4,4 +4,5 @@ export interface News {
   story_title: string
   created_at: string
   author: string
+  liked?: boolean
 }
