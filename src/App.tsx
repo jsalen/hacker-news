@@ -25,7 +25,13 @@ function App() {
       <main>
         <Navigation handleNavigation={handleNavigation} view={view} />
         <Dropdown handleFilter={handleFilter} filter={filter} />
-        {loading ? <div>Loading...</div> : <ListOfCards cards={data} />}
+        <ListOfCards
+          loading={loading}
+          error={error}
+          cards={view ? data : data}
+          onLoading={() => <div>Loading...</div>}
+          onError={() => <div>Something went wrong</div>}
+        />
       </main>
     </>
   )

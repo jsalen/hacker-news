@@ -6,16 +6,32 @@ import './styles.css'
 
 interface Props {
   cards: News[]
+  loading: boolean
+  error: boolean
+  onLoading: () => JSX.Element
+  onError: () => JSX.Element
 }
 
-export const ListOfCards = ({ cards }: Props) => {
+export const ListOfCards = ({
+  cards,
+  loading,
+  error,
+  onLoading,
+  onError,
+}: Props) => {
   const { count } = useInfiniteScroll()
 
   return (
-    <section className='list-of-cards'>
-      {cards.slice(0, count).map((card) => (
-        <Card key={card.objectID} card={card} />
-      ))}
-    </section>
+    <>
+      {error && onError()}
+      {loading && onLoading()}
+      {!loading && !error && (
+        <section className='list-of-cards'>
+          {cards.slice(0, count).map((card) => (
+            <Card key={card.objectID} card={card} />
+          ))}
+        </section>
+      )}
+    </>
   )
 }
