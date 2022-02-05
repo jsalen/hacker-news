@@ -1,3 +1,4 @@
+import TimeAgo from 'react-timeago'
 import { News } from '../../interfaces/News.interface'
 
 import clockIcon from '../../statics/images/iconmonstr-time-2.svg'
@@ -17,7 +18,7 @@ export const Card = ({ card }: Props) => {
         <header className='card__header'>
           <img src={clockIcon} alt='Time ago' />
           <span>
-            {card.created_at} by {card.author}
+            <TimeAgo date={card.created_at.toString()} /> by {card.author}
           </span>
         </header>
         <div className='card__title'>
