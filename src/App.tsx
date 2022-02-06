@@ -27,27 +27,15 @@ function App() {
       <main>
         <Navigation handleNavigation={handleNavigation} view={view} />
         <Dropdown handleFilter={handleFilter} filter={filter} />
-        {view ? (
-          <ListOfCards
-            loading={loading}
-            error={error}
-            view={view}
-            cards={data}
-            onLoading={() => <div>Loading...</div>}
-            onError={() => <div>Something went wrong</div>}
-            onNoLikedPosts={() => <div>No liked posts</div>}
-          />
-        ) : (
-          <ListOfCards
-            loading={loading}
-            error={error}
-            view={view}
-            cards={likedPosts}
-            onLoading={() => <div>Loading...</div>}
-            onError={() => <div>Something went wrong</div>}
-            onNoLikedPosts={() => <div>No liked posts</div>}
-          />
-        )}
+        <ListOfCards
+          loading={loading}
+          error={error}
+          view={view}
+          cards={view ? data : likedPosts}
+          onLoading={() => <div>Loading...</div>}
+          onError={() => <div>Something went wrong</div>}
+          onNoLikedPosts={() => <div>No liked posts</div>}
+        />
       </main>
     </>
   )
