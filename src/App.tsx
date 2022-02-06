@@ -13,8 +13,8 @@ function App() {
   const { data, loading, error } = useFetch(filter)
   const { likedPosts } = useAppSelector((state) => state.likedPosts)
 
-  const handleNavigation = () => {
-    setView((prev) => !prev)
+  const handleNavigation = (opt: string) => {
+    return opt === 'all' ? setView(true) : setView(false)
   }
 
   const handleFilter = (filter: string) => {
