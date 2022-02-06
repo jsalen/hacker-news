@@ -25,6 +25,11 @@ export const likedPostSlice = createSlice({
       state.likedPosts.push(newPost)
     },
     removeLike: (state, action: PayloadAction<string>) => {
+      const index = state.likedPosts.findIndex(
+        (post) => post.objectID === action.payload
+      )
+      state.likedPosts[index].liked = false
+
       state.likedPosts = state.likedPosts.filter(
         (post) => post.objectID !== action.payload
       )
