@@ -1,17 +1,17 @@
 import { useState } from 'react'
+import { useAppSelector } from './hooks/hooksTypes'
 import { Dropdown } from './components/Dropdown'
 import { Header } from './components/Header'
 import { Navigation } from './components/Navigation'
 import { ListOfCards } from './container/ListOfCards'
 
 import useFetch from './hooks/useFetch'
-import { useInitialState } from './hooks/useInitialState'
 
 function App() {
   const [view, setView] = useState(true)
   const [filter, setFilter] = useState('')
   const { data, loading, error } = useFetch(filter)
-  const { likedPosts } = useInitialState()
+  const { likedPosts } = useAppSelector((state) => state.likedPosts)
 
   const handleNavigation = () => {
     setView((prev) => !prev)
@@ -20,8 +20,6 @@ function App() {
   const handleFilter = (filter: string) => {
     setFilter(filter)
   }
-
-  console.log(likedPosts)
 
   return (
     <>
