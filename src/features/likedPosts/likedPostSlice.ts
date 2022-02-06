@@ -14,10 +14,15 @@ export const likedPostSlice = createSlice({
   initialState,
   reducers: {
     hydrate: (state, action) => {
+      action.payload.map((item: News) => ({
+        ...item,
+        liked: true,
+      }))
       state.likedPosts = action.payload
     },
     addLike: (state, action: PayloadAction<News>) => {
-      state.likedPosts.push(action.payload)
+      const newPost = { ...action.payload, liked: true }
+      state.likedPosts.push(newPost)
     },
     removeLike: (state, action: PayloadAction<string>) => {
       state.likedPosts = state.likedPosts.filter(

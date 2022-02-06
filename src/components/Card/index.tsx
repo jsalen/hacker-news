@@ -1,11 +1,11 @@
 import { useState } from 'react'
+import { useAppDispatch } from '../../hooks/hooksTypes'
+import { addLike, removeLike } from '../../features/likedPosts/likedPostSlice'
 import TimeAgo from 'react-timeago'
 
 import clockIcon from '../../statics/images/iconmonstr-time-2.svg'
 import likedIcon from '../../statics/images/iconmonstr-favorite-3.svg'
 import unlikedIcon from '../../statics/images/iconmonstr-favorite-2.svg'
-
-import { useInitialState } from '../../hooks/useInitialState'
 
 import './styles.css'
 
@@ -14,15 +14,15 @@ interface Props {
 }
 
 export const Card = ({ card }: Props) => {
+  const dispatch = useAppDispatch()
   const [liked, setLiked] = useState(card.liked)
-  const { addLikedPost, removeLikedPost } = useInitialState()
 
   const handleLike = () => {
     if (liked) {
-      removeLikedPost(card.objectID)
+      dispatch(removeLike(card.objectID))
       setLiked(false)
     } else {
-      addLikedPost(card)
+      dispatch(addLike(card))
       setLiked(true)
     }
   }
