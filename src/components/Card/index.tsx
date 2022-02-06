@@ -19,11 +19,12 @@ export const Card = ({ card }: Props) => {
 
   const handleLike = () => {
     if (liked) {
-      removeLikedPost(card)
+      removeLikedPost(card.objectID)
+      setLiked(false)
     } else {
       addLikedPost(card)
+      setLiked(true)
     }
-    setLiked((prev) => !prev)
   }
 
   return (
