@@ -1,29 +1,27 @@
+import { useAppDispatch } from './hooksTypes'
+import { addLike, removeLike } from '../features/likedPosts/likedPostSlice'
 import { useLocalStorage } from './useLocalStorage'
 
 export function useInitialState() {
-  const {
-    storedValue: likedPosts,
-    setValue: saveLikedPosts,
-    synchronize,
-  } = useLocalStorage('HNEWS_V1', [])
+  const dispatch = useAppDispatch()
+  const { storedValue: likedPosts, setValue: saveLikedPosts } = useLocalStorage(
+    'HNEWS_V1',
+    []
+  )
 
   const addLikedPost = (post: News) => {
-    const newLikes: News[] = [...likedPosts]
-    newLikes.push({
-      ...post,
-      liked: true,
-    })
-    saveLikedPosts(newLikes)
+    const newPost = { ...post, liked: true }
+    dispatch(addLike(newPost))
   }
 
-  const removeLikedPost = (post: News) => {
-    saveLikedPosts(likedPosts.filter((p: News) => p.objectID !== post.objectID))
+  const removeLikedPost = (postID: string) => {
+    saveLikedPosts(likedPosts.filter((p: News) => p.objectID !== postID))
+    dispatch(removeLike(postID))
   }
 
   return {
     likedPosts,
     addLikedPost,
     removeLikedPost,
-    synchronize,
   }
 }

@@ -17,7 +17,10 @@ function useFetch(param: string) {
       axios
         .get(URL_BY_DATE)
         .then((res) => {
-          const filteredResults = filterData(res.data.hits)
+          const filteredResults = filterData(res.data.hits).map((item) => ({
+            ...item,
+            liked: false,
+          }))
           setData(filteredResults)
           setLoading(false)
         })
@@ -31,7 +34,10 @@ function useFetch(param: string) {
           `https://hn.algolia.com/api/v1/search_by_date?query=${param}&hitsPerPage=500`
         )
         .then((res) => {
-          const filteredResults = filterData(res.data.hits)
+          const filteredResults = filterData(res.data.hits).map((item) => ({
+            ...item,
+            liked: false,
+          }))
           setData(filteredResults)
           setLoading(false)
         })
