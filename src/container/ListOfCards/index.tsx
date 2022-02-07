@@ -23,6 +23,8 @@ export const ListOfCards = ({
   onNoLikedPosts,
 }: Props) => {
   const { count } = useInfiniteScroll()
+  // count: Set how many posts will be loaded after users
+  // gets to bottom of page, creating a infinity scroll.
 
   return (
     <>
