@@ -6,6 +6,7 @@ import { Navigation } from './components/Navigation'
 import { ListOfCards } from './container/ListOfCards'
 
 import useFetch from './hooks/useFetch'
+import { Message } from './components/Message'
 
 function App() {
   const [view, setView] = useState(true)
@@ -32,9 +33,9 @@ function App() {
           error={error}
           view={view}
           cards={view ? data : likedPosts}
-          onLoading={() => <div>Loading...</div>}
-          onError={() => <div>Something went wrong</div>}
-          onNoLikedPosts={() => <div>No liked posts</div>}
+          onLoading={() => <Message message={'Loading...'} />}
+          onError={() => <Message message={'Something went wrong'} />}
+          onNoLikedPosts={() => <Message message={'No liked posts'} />}
         />
       </main>
     </>

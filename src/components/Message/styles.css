@@ -1,0 +1,12 @@
+.message {
+  width: 100%;
+  margin: 60px auto 0;
+}
+
+.message h2 {
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1.8rem;
+  text-align: center;
+  color: #606060;
+}
