@@ -6,9 +6,3 @@ interface News {
   author: string
   liked?: boolean
 }
-
-type ContextType = {
-  likedPosts: News[]
-  addLikedPost: (post: News) => void
-  removeLikedPost: (post: News) => void
-}
