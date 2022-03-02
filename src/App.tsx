@@ -7,12 +7,16 @@ import { ListOfCards } from './container/ListOfCards'
 
 import useFetch from './hooks/useFetch'
 import { Message } from './components/Message'
+import { Pagination } from './components/Pagination'
 
 function App() {
   const [view, setView] = useState(true)
   const [filter, setFilter] = useState('')
-  const { data, loading, error } = useFetch(filter)
+  const [currentPage, setCurrentPage] = useState(1)
+  const { data, totalPages, loading, error } = useFetch(filter, currentPage)
   const { likedPosts } = useAppSelector((state) => state.likedPosts)
+
+  const handlePageChange = (page: number) => setCurrentPage(page)
 
   const handleNavigation = (opt: string) => {
     return opt === 'all' ? setView(true) : setView(false)
@@ -37,6 +41,14 @@ function App() {
           onError={() => <Message message={'Something went wrong'} />}
           onNoLikedPosts={() => <Message message={'No liked posts'} />}
         />
+        {view && (
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            loading={loading}
+            onPageChange={handlePageChange}
+          />
+        )}
       </main>
     </>
   )
