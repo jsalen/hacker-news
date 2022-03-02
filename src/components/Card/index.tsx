@@ -33,15 +33,11 @@ export const Card = ({ card }: Props) => {
         <header className='card__header'>
           <img src={clockIcon} alt='Time ago' />
           <span>
-            <TimeAgo date={card.created_at.toString()} /> by {card.author}
+            <TimeAgo date={card.created_at} /> by {card.author}
           </span>
         </header>
         <div className='card__title'>
-          <a
-            href={card.story_url?.toString()}
-            target='_blank'
-            rel='noopener noreferrer'
-          >
+          <a href={card.story_url} target='_blank' rel='noopener noreferrer'>
             {card.story_title}
           </a>
         </div>
