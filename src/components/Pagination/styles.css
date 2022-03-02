@@ -1,5 +1,5 @@
 .pagination {
-  padding: 2rem 0;
+  padding-bottom: 98px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,22 +8,21 @@
 .separator {
   width: 1rem;
   margin: 0 0.25rem;
+  color: rgba(0, 0, 0, 0.65);
+  letter-spacing: 1px;
+  font-size: 14px;
 }
 
 .pagination__item {
-  background: transparent;
-  border: none;
-  height: 2rem;
-  width: 2rem;
-  margin: 0 0.25rem;
-  border-radius: 50%;
-  font-weight: 600;
-  color: rgb(19, 131, 236);
+  margin: 0 8px;
+  width: 32px;
+  height: 32px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.65);
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
   cursor: pointer;
-}
-
-.pagination__item:hover {
-  text-decoration: underline;
 }
 
 .pagination__item:focus {
@@ -31,7 +30,7 @@
 }
 
 .active {
-  background-color: rgb(19, 131, 236);
+  background-color: #1890ff;
   color: white;
 }
 

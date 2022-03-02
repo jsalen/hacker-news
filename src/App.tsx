@@ -41,11 +41,14 @@ function App() {
           onError={() => <Message message={'Something went wrong'} />}
           onNoLikedPosts={() => <Message message={'No liked posts'} />}
         />
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={handlePageChange}
-        />
+        {view && (
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            loading={loading}
+            onPageChange={handlePageChange}
+          />
+        )}
       </main>
     </>
   )

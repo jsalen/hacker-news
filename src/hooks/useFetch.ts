@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { filterData } from '../utils'
@@ -47,7 +46,7 @@ function useFetch(param: string, page: number) {
         })
     } else {
       axios
-        .get(`${BASE_URL}?query=${param}&page=${page - 1}`)
+        .get(`${BASE_URL}&query=${param}&page=${page - 1}`)
         .then((res) => {
           const filteredResults = filterData(res.data.hits).map((item) =>
             isLiked(item)
