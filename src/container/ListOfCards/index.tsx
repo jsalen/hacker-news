@@ -1,5 +1,4 @@
 import { Card } from '../../components/Card'
-import { useInfiniteScroll } from '../../hooks/useInfiniteScroll'
 
 import './styles.css'
 
@@ -22,10 +21,6 @@ export const ListOfCards = ({
   onError,
   onNoLikedPosts,
 }: Props) => {
-  const { count } = useInfiniteScroll()
-  // count: Set how many posts will be loaded after users
-  // gets to bottom of page, creating a infinity scroll.
-
   return (
     <>
       {error && onError()}
@@ -33,7 +28,7 @@ export const ListOfCards = ({
       {!view && !cards.length && onNoLikedPosts()}
       {!loading && !error && (
         <section className='list-of-cards'>
-          {cards.slice(0, count).map((card) => (
+          {cards.map((card) => (
             <Card key={card.objectID} card={card} />
           ))}
         </section>
