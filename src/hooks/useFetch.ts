@@ -4,7 +4,7 @@ import axios from 'axios'
 import { filterData } from '../utils'
 import { useAppSelector } from './hooksTypes'
 
-const BASE_URL = 'https://hn.algolia.com/api/v1/search_by_date?hitsPerPage=20'
+const BASE_URL = process.env.REACT_APP_API_URL
 
 function useFetch(param: string, page: number) {
   const [data, setData] = useState<News[]>([])
