@@ -24,6 +24,7 @@ function App() {
 
   const handleFilter = (filter: string) => {
     setFilter(filter)
+    setCurrentPage(1)
   }
 
   return (
